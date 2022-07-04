@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <style>
+        .box {
+            border: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .box--small {
+            width: 90px;
+            height: 90px;
+        }
+
+        .box--medium {
+            width: 180px;
+            height: 180px;
+        }
+        .box--large {
+            width: 270px;
+            height: 270px;
+        }
+    </style>
+    <script type="text/babel">     
+        const rootElement = document.getElementById('root');
+
+        function Box ({className, style, ...rest}) {
+            return (
+                <div
+                    className={`box ${className}`}
+                    style = {{fontStyle: 'italic', ...style}}
+                    {...rest}
+                />
+                )
+        }
+
+        const element = (
+            <div>
+                <Box className="box--small" style={{backgroundColor: 'red',}}>
+                    small red box
+                </Box>
+                <Box className="box--medium" style={{backgroundColor: 'lightblue',}}>
+                    small light blue box
+                </Box>
+                <Box className="box--large" style={{backgroundColor: 'lightgreen',}}>
+                    small light green box
+                </Box>
+            </div>
+        );
+
+        ReactDOM.render(element, rootElement);
+    </script>
+</body>
+</html>
