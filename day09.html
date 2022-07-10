@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- html -->
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+        // js
+        const rootElement = document.getElementById('root');
+        // The text "Hello World" has 11 characters
+        // The text "" has No characters
+
+        function CharacterCount ({text}) {
+            return (
+                // Jsx
+                <div>
+                    { /* js */ `The text ${text} has`} 
+                    {text.length ? /*JSX*/ <strong>{ /*JS*/ text.length} </strong> : /*JS*/ "No"} 
+                    {/*JS*/` characters`}
+                </div>
+                // js
+            )
+        }
+
+        const element =(/*JSX*/<> 
+                    <CharacterCount  text="Hello World" />
+                    <CharacterCount  text="" />
+                </>)
+
+        // js
+        ReactDOM.render(element, root);
+    </script>
+</body>
+</html>
+
